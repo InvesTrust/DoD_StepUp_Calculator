@@ -61,7 +61,7 @@ def calculate_security_price(ticker, ticker_type, date_of_death, decimal_places)
                 }
 
             # Round the closing price immediately when pulling from yfinance
-            close_price = round(hist['Close'][0], decimal_places)
+            close_price = round(hist['Close'].iloc[0], decimal_places)
 
             return {
                 'Price': close_price,
@@ -103,12 +103,12 @@ def calculate_security_price(ticker, ticker_type, date_of_death, decimal_places)
                     }
 
                 # Round individual prices before calculations
-                friday_high = round(friday_hist['High'][0], decimal_places)
-                friday_low = round(friday_hist['Low'][0], decimal_places)
-                friday_close = round(friday_hist['Close'][0], decimal_places)
-                monday_high = round(monday_hist['High'][0], decimal_places)
-                monday_low = round(monday_hist['Low'][0], decimal_places)
-                monday_close = round(monday_hist['Close'][0], decimal_places)
+                friday_high = round(friday_hist['High'].iloc[0], decimal_places)
+                friday_low = round(friday_hist['Low'].iloc[0], decimal_places)
+                friday_close = round(friday_hist['Close'].iloc[0], decimal_places)
+                monday_high = round(monday_hist['High'].iloc[0], decimal_places)
+                monday_low = round(monday_hist['Low'].iloc[0], decimal_places)
+                monday_close = round(monday_hist['Close'].iloc[0], decimal_places)
 
                 # Calculate averages using rounded prices
                 friday_avg = (friday_high + friday_low) / 2
@@ -147,9 +147,9 @@ def calculate_security_price(ticker, ticker_type, date_of_death, decimal_places)
                     }
 
                 # Round individual prices before calculations
-                high_price = round(hist['High'][0], decimal_places)
-                low_price = round(hist['Low'][0], decimal_places)
-                close_price = round(hist['Close'][0], decimal_places)
+                high_price = round(hist['High'].iloc[0], decimal_places)
+                low_price = round(hist['Low'].iloc[0], decimal_places)
+                close_price = round(hist['Close'].iloc[0], decimal_places)
 
                 # Calculate average using rounded prices
                 final_price = round((high_price + low_price) / 2, decimal_places)
@@ -272,3 +272,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
